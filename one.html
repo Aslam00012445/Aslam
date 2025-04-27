@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Mother's Day</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc0cb;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 45px;
+      color: #800080;
+      margin-top: 15px;
+      margin-bottom:5px;
+    }
+    img {
+      margin-top: 0px;
+      width: 150px;
+      height: auto;
+      border-radius: 30px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.8);
+    }
+    p {
+      font-size: 26px;
+      color: #9B0000;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    audio {
+      background-color: #ff69b4;
+      border-radius: 20px;
+      padding: 1px;
+      width: 80%;
+      outline: none;
+      margin-bottom: 30px;
+    }
+    audio::-webkit-media-controls-panel {
+      background-color: #ff69b4;
+      border-radius: 15px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 20px;
+      color: white;
+      background-color: #ff1493;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background-color: #c71585;
+      transform: scale(1.05);
+    }
+
+    /* Falling flowers and hearts */
+    .flower, .heart {
+      position: absolute;
+      top: -50px;
+      font-size: 30px;
+      animation: fall 10s linear infinite;
+      color: #ff69b4;
+      opacity: 0.8;
+    }
+    .heart {
+      color: #ff1493;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    /* Popup Styling and Animation */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff0f5;
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      font-family: 'Pacifico', cursive;
+      font-size: 36px;
+      color: #d63384;
+      z-index: 1000;
+      animation: bounce 0.6s;
+    }
+    @keyframes bounce {
+      0%   { transform: translate(-50%, -50%) scale(0.5); }
+      50%  { transform: translate(-50%, -50%) scale(1.2); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Mother's Day!</h1>
+
+  <!-- Image -->
+  <img src="/IMG20250118103156.jpg" alt="Mom and Me">
+
+  <p>Thank you for your love, Mom!</p>
+    <!-- Audio -->
+  <audio controls autoplay loop>
+    <source src="/Mujh Mein Tu Special 26 Full Video Song feat. Akshay Kumar, Kajal Aggarwal.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Hidden Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="your-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Button -->
+  <button class="btn" onclick="showLove()">Send Love to Mom</button>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    Love You Mom!
+  </div>
+
+  <!-- Falling Flowers and Hearts -->
+  <div class="flower" style="left:5%;">&#10047;</div>
+  <div class="flower" style="left:20%;">&#10047;</div>
+  <div class="flower" style="left:35%;">&#10047;</div>
+  <div class="flower" style="left:50%;">&#10047;</div>
+  <div class="flower" style="left:65%;">&#10047;</div>
+  <div class="flower" style="left:80%;">&#10047;</div>
+  <div class="heart" style="left:15%;">&#10084;</div>
+  <div class="heart" style="left:45%;">&#10084;</div>
+  <div class="heart" style="left:75%;">&#10084;</div>
+
+  <script>
+    function showLove() {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      popup.style.animation = 'bounce 0.6s';
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 2000); // Hide after 2 seconds
+    }
+
+    // Auto play music when page loads
+    window.addEventListener('load', function() {
+      var music = document.getElementById('bg-music');
+      music.play().catch(function() {
+        // For browsers that block autoplay
+        console.log('Autoplay blocked. User interaction needed.');
+      });
+    });
+  </script>
+
+</body>
+</html>
